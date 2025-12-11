@@ -1,6 +1,6 @@
 return {
-  "catppuccin/nvim", 
-  name = "catppuccin", 
+  "catppuccin/nvim",
+  name = "catppuccin",
   priority = 1000,
   config = function()
     require("catppuccin").setup({
@@ -8,7 +8,11 @@ return {
       integrations = {
         blink_cmp = {
           style = "bordered",
-        }
+        },
+        telescope = {
+          enabled = true,
+        },
+        mason = true,
       }
     })
     vim.cmd.colorscheme "catppuccin"
