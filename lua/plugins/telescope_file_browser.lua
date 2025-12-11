@@ -10,6 +10,7 @@ return {
           respect_gitignore = vim.fn.executable('fd') == 1,
           depth = 1,
           auto_depth = true,
+          hidden = {file_browser = true, folder_browser = true},
         },
       },
     })
