@@ -12,3 +12,7 @@ vim.opt.softtabstop = 2
 -- Kebindings
 vim.g.mapleader = ' '
 vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
+
+-- Initial Config
+vim.opt.number = true
+vim.opt.relativenumber = true

@@ -8,7 +8,7 @@ return {
           hijack_netrw = true,
           use_fd = true,
           respect_gitignore = vim.fn.executable('fd') == 1,
-          depth = 1,
+          depth = 4,
           -- auto_depth = true,
           hidden = {file_browser = true, folder_browser = true},
         },
