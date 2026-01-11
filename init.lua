@@ -12,8 +12,8 @@ vim.opt.softtabstop = 2
 
 -- Kebindings
 vim.g.mapleader = ' '
-vim.keymap.set("n", "<leader>r",  ":w<CR>:!go run %<CR>")
-vim.keymap.set("n", "<leader>fb", helpers.run_current_file, {silent = true})
+vim.keymap.set("n", "<leader>r",  helpers.run_current_file, {silent = true})
+vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
 
 -- Initial Config
 vim.opt.number = true
