@@ -44,8 +44,18 @@ vim.lsp.config.pyright = {
   },
 }
 
+-- Gopls
+vim.lsp.config.Gopls = {
+  capabilities = capabilities,
+  cmd = { 'gopls' },
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+  root_markers = { '.git', 'go.mod' },
+  settings = {
+  }
+}
+
 -- Enable the servers
-vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'pyright' })
+vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'pyright', 'Gopls' })
 
 -- Error messages
 vim.diagnostic.config({
