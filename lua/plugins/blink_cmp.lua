@@ -15,7 +15,11 @@ return {
 
     completion = { documentation = { auto_show = true } },
 
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+    signature = {
+      enabled = true,
+      window = { show_documentation = true },
+    },
   },
-  opts_extend = { "sources.default" }
+  opts_extend = { "sources.default" },
 }
