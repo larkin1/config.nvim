@@ -29,18 +29,26 @@ vim.lsp.config.rust_analyzer = {
     ['rust-analyzer'] = {
       check = { command = 'clippy' },
       cargo = { loadOutDirsFromCheck = true },
+      procMacro = { enable = true },
     },
   },
 }
 
--- Pyright
-vim.lsp.config.pyright = {
+-- BasedPyright (enhanced pyright with semantic highlighting)
+vim.lsp.config.basedpyright = {
   capabilities = capabilities,
-  cmd = { 'pyright-langserver', '--stdio' },
+  cmd = { 'basedpyright-langserver', '--stdio' },
   filetypes = { 'python' },
-  root_markers = { '.git', 'pyproject.toml', 'setup.py' },
+  root_markers = { '.git', 'pyproject.toml', 'setup.py', 'pyproject.toml' },
   settings = {
-    python = { analysis = { autoSearchPaths = true, useLibraryCodeForTypes = true } },
+    basedpyright = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        typeCheckingMode = "basic",
+        semanticTokens = true,
+      },
+    },
   },
 }
 
@@ -51,11 +59,16 @@ vim.lsp.config.gopls = {
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   root_markers = { '.git', 'go.mod' },
   settings = {
+    gopls = {
+      semanticTokens = true,
+    }
   }
 }
 
 -- Enable the servers
-vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'pyright', 'gopls' })
+vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'basedpyright', 'gopls' })
+
+
 
 -- Error messages
 vim.diagnostic.config({
