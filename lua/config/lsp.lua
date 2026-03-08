@@ -70,12 +70,8 @@ vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'basedpyright', 'gopls' })
 
 
 
--- Error messages
+-- Error messages (virtual_text disabled - handled by tiny-inline-diagnostic)
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = '|',
-    source = 'if_many',
-  },
   signs = true,
   underline = true,
   update_in_insert = false,
