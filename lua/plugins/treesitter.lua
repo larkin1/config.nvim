@@ -1,21 +1,32 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  lazy = false,
+  priority = 1000,
   build = ':TSUpdate',
-  event = { 'BufReadPost', 'BufNewFile' },
   config = function()
-    local ok, configs = pcall(require, 'nvim-treesitter.configs')
-    if not ok then
-      return
-    end
-    configs.setup({
-      ensure_installed = { 'go', 'lua', 'python', 'rust', 'javascript', 'typescript', 'json', 'yaml', 'toml' },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
+    -- Register VHS parser (third-party)
+    require('nvim-treesitter.parsers').vhs = {
+      install_info = {
+        url = 'https://github.com/charmbracelet/tree-sitter-vhs',
+        files = { 'src/parser.c' },
+        branch = 'main',
+        queries = 'queries',
       },
-      indent = {
-        enable = true,
-      },
+    }
+    
+    -- Auto-install core parsers + VHS on startup
+    vim.defer_fn(function()
+      require('nvim-treesitter').install({
+        'go', 'lua', 'python', 'rust', 'javascript', 'typescript', 'json', 'yaml', 'toml', 'vhs'
+      })
+    end, 100)
+    
+    -- Enable treesitter highlighting for configured languages
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { 'go', 'lua', 'python', 'rust', 'javascript', 'typescript', 'json', 'yaml', 'toml', 'vhs' },
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
     })
   end,
 }
