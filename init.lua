@@ -1,3 +1,10 @@
+-- Filetype detection
+vim.filetype.add({
+  extension = {
+    tape = 'vhs',
+  },
+})
+
 -- Lazy
 require("config.lazy")
 require("config.lsp")
