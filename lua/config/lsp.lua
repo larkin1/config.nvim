@@ -15,6 +15,7 @@ vim.lsp.config.lua_ls = {
       runtime = { version = 'LuaJIT' },
       diagnostics = { globals = { 'vim' } },
       workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+      semanticTokens = { enable = true },
     },
   },
 }
@@ -30,6 +31,7 @@ vim.lsp.config.rust_analyzer = {
       check = { command = 'clippy' },
       cargo = { loadOutDirsFromCheck = true },
       procMacro = { enable = true },
+      semanticTokens = { enable = true },
     },
   },
 }
@@ -46,7 +48,7 @@ vim.lsp.config.basedpyright = {
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         typeCheckingMode = "basic",
-        semanticTokens = true,
+      semanticTokens = true,
       },
     },
   },
