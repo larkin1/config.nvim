@@ -1,13 +1,6 @@
 return {
   "folke/trouble.nvim",
   cmd = "Trouble",
-  keys = {
-    {
-      "<leader>t",
-      "<cmd>Trouble diagnostics toggle<cr>",
-      desc = "Toggle diagnostics panel",
-    },
-  },
   config = function()
     require("trouble").setup({
       modes = {

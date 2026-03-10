@@ -13,7 +13,4 @@ return {
       wrap = false,
     },
   },
-  keys = {
-    { "<leader>u", "<cmd>Atone toggle<cr>", desc = "Toggle undo tree" },
-  },
 }
