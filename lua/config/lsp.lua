@@ -9,12 +9,14 @@ vim.lsp.config.lua_ls = {
   capabilities = capabilities,
   cmd = { 'lua-language-server' },
   filetypes = { 'lua' },
-  root_markers = { '.git', 'init.lua' },
+  root_markers = { '.git', 'init.lua', '.luarc.json', '.luarc.jsonc' },
   settings = {
     Lua = {
       runtime = { version = 'LuaJIT' },
       diagnostics = { globals = { 'vim' } },
-      workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file('', true),
+      },
       semanticTokens = { enable = true },
     },
   },
