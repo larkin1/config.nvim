@@ -6,6 +6,7 @@ return {
     local alpha = require('alpha')
     local dashboard = require('alpha.themes.dashboard')
 
+    -- Logo helper functions
     local function build_header(lines, border_color, start_color, end_color)
       local border_chars = { ["╚"]=true, ["═"]=true, ["╝"]=true, ["║"]=true, ["╔"]=true, ["╗"]=true }
       local utf8 = "[%z\1-\127\194-\244][\128-\191]*"
@@ -21,6 +22,7 @@ return {
 
       vim.api.nvim_set_hl(0, "AlphaBorder", { fg = border_color })
 
+      -- Logo builder
       local val = {}
       for i, line in ipairs(lines) do
         local hl_name = "AlphaGrad" .. i
@@ -50,7 +52,7 @@ return {
       return { type = "group", val = val, opts = { position = "center", spacing = 0 } }
     end
 
-    -- ASCII logo with gradient and shadow colors
+    -- Logo
     local logo_lines = {
       "                                                      ",
       "   ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
@@ -64,17 +66,19 @@ return {
 
     dashboard.section.header = build_header(logo_lines, "#585b70", "#cba6f7", "#fab387")
 
-    -- Build buttons
+    -- Buttons
     dashboard.section.buttons.val = {
       dashboard.button('n', '󰈔  New', ':ene <BAR> startinsert <CR>'),
       dashboard.button('f', '󰝒  Find file', ':Telescope file_browser<CR>'),
-      dashboard.button('r', '󱈖  Recent files', ':Telescope oldfiles<CR>'),
       dashboard.button('g', '󱎸  Find text', ':Telescope live_grep<CR>'),
+      dashboard.button('r', '󱈖  Recent files', ':Telescope oldfiles<CR>'),
       dashboard.button('q', '󰜺  Quit', ':qa<CR>'),
     }
 
+    -- Footer
     dashboard.section.footer.val = 'Current time: ' .. os.date('%H:%M')
 
+    -- Spacing
     dashboard.config.layout = {
       { type = 'padding', val = 2 },
       dashboard.section.header,
