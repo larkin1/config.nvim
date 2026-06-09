@@ -22,6 +22,14 @@ vim.lsp.config.lua_ls = {
   },
 }
 
+-- QML LS
+vim.lsp.config.qmlls = {
+  capabilities = capabilities,
+  cmd = { 'qmlls', "-E" },
+  filetypes = { 'qml' },
+  root_markers = { '.git', 'CMakeLists.txt', 'qmldir' },
+}
+
 -- Rust Analyzer
 vim.lsp.config.rust_analyzer = {
   capabilities = capabilities,
@@ -70,7 +78,7 @@ vim.lsp.config.gopls = {
 }
 
 -- Enable the servers
-vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'basedpyright', 'gopls' })
+vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'basedpyright', 'gopls', 'qmlls' })
 
 
 
