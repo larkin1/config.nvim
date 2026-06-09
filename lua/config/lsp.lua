@@ -27,7 +27,7 @@ vim.lsp.config.qmlls = {
   capabilities = capabilities,
   cmd = { 'qmlls', "-E" },
   filetypes = { 'qml' },
-  root_markers = { '.git', 'CMakeLists.txt', 'qmldir' },
+  root_markers = { '.git', 'CMakeLists.txt', 'qmldir', '.qmlls.ini' },
 }
 
 -- Rust Analyzer
