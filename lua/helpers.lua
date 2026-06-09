@@ -21,7 +21,7 @@ function M.run_current_file()
     vim.cmd("!vhs %")
   elseif ft == "qml" then
     vim.cmd("w")
-    vim.cmd("!quickshell %")
+    vim.cmd("!quickshell")
   end
 end
 
