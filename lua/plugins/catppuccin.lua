@@ -12,7 +12,6 @@ return {
         telescope = {
           enabled = true,
         },
-        mason = true,
       }
     })
     vim.cmd.colorscheme "catppuccin-mocha"
