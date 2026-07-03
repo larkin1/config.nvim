@@ -12,7 +12,6 @@ vim.filetype.add({
 -- Lazy
 require("config.lazy")
 require("config.lsp")
-require("mason").setup()
 local helpers = require("helpers")
 
 -- Indents

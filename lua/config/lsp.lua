@@ -1,6 +1,3 @@
-local mason_bin = vim.fn.stdpath('data') .. '/mason/bin/'
-vim.env.PATH = mason_bin .. vim.env.PATH
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
