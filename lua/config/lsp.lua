@@ -19,6 +19,23 @@ vim.lsp.config.lua_ls = {
   },
 }
 
+vim.lsp.config.nills = {
+  capabilities = capabilities,
+  cmd = { 'nil' },
+  filetypes = { 'nix' },
+  root_markers = { 'flake.nix', '.git' },
+  settings = {
+    ['nil'] = {
+      nix = {
+        flake = {
+          autoArchive = true,
+          autoEvalInputs = true,
+        },
+      },
+    },
+  },
+}
+
 -- QML LS
 vim.lsp.config.qmlls = {
   capabilities = capabilities,
@@ -75,7 +92,7 @@ vim.lsp.config.gopls = {
 }
 
 -- Enable the servers
-vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'basedpyright', 'gopls', 'qmlls' })
+vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'basedpyright', 'gopls', 'qmlls', 'nills' })
 
 
 
