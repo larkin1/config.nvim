@@ -19,21 +19,21 @@ vim.lsp.config.lua_ls = {
   },
 }
 
-vim.lsp.config.nills = {
+vim.lsp.config.nixd = {
   capabilities = capabilities,
-  cmd = { 'nil' },
+  cmd = { 'nixd' },
   filetypes = { 'nix' },
   root_markers = { 'flake.nix', '.git' },
-  settings = {
-    ['nil'] = {
-      nix = {
-        flake = {
-          autoArchive = true,
-          autoEvalInputs = true,
-        },
-      },
-    },
-  },
+  -- settings = {
+  --   ['nil'] = {
+  --     nix = {
+  --       flake = {
+  --         autoArchive = true,
+  --         autoEvalInputs = true,
+  --       },
+  --     },
+  --   },
+  -- },
 }
 
 -- QML LS
