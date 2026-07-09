@@ -76,7 +76,7 @@ return {
     }
 
     -- Footer
-    dashboard.section.footer.val = 'Current time: ' .. os.date('%H:%M')
+    dashboard.section.footer.val = 'Start time: ' .. os.date('%H:%M')
 
     -- Spacing
     dashboard.config.layout = {
