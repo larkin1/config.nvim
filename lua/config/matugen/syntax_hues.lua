@@ -22,7 +22,9 @@ return function(c, hl)
   }
   for _, m in ipairs(map) do
     if m[1] then
-      for _, g in ipairs(m[2]) do hl(g, { fg = m[1] }) end
+      for _, g in ipairs(m[2]) do
+        hl(g, vim.tbl_extend("force", { fg = m[1] }, m[3] or {}))
+      end
     end
   end
 end
