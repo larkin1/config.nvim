@@ -10,6 +10,8 @@ return function(c, hl)
     { x.syn_yellow, { "@type", "@type.builtin", "@lsp.type.type", "@lsp.type.class", "@lsp.type.struct", "@lsp.type.enum", "@lsp.type.interface" } },
     { x.syn_green,  { "@string", "@lsp.type.string" } },
     { x.syn_orange, { "@number", "@number.float", "@boolean", "@constant", "@constant.builtin", "@lsp.type.number", "@lsp.type.enumMember" } },
+    { x.syn_purple, { "@keyword", "@keyword.function", "@keyword.return", "@keyword.conditional", "@keyword.repeat", "@keyword.import", "@keyword.operator", "@keyword.modifier", "@keyword.exception", "@lsp.type.keyword" } },
+
   }
   for _, m in ipairs(map) do
     if m[1] then
