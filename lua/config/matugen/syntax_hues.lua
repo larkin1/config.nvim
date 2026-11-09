@@ -6,7 +6,8 @@ return function(c, hl)
   if not ok then return end
 
   local map = {
-    { x.syn_cyan,   { "@function", "@function.call", "@function.method", "@function.method.call", "@lsp.type.function", "@lsp.type.method" } },
+    { x.syn_cyan,   { "@function", "@function.call", "@function.builtin", "@function.method", "@function.method.call", "@lsp.type.function", "@lsp.type.method" } },
+    { x.syn_blue,   { "@variable.member", "@property", "@lsp.type.property" } },
     { x.syn_yellow, { "@type", "@type.builtin", "@lsp.type.type", "@lsp.type.class", "@lsp.type.struct", "@lsp.type.enum", "@lsp.type.interface" } },
     { x.syn_green,  { "@string", "@lsp.type.string" } },
     { x.syn_orange, { "@number", "@number.float", "@boolean", "@constant", "@constant.builtin", "@lsp.type.number", "@lsp.type.enumMember" } },
