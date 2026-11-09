@@ -22,6 +22,7 @@ vim.lsp.config.lua_ls = {
 -- NIX LS
 vim.lsp.config.nil_ls = {
   capabilities = capabilities,
+  on_attach = function(client) client.server_capabilities.semanticTokensProvider = nil end,
   cmd = { 'nil' },
   filetypes = { 'nix' },
   root_markers = { 'flake.nix', '.git' },
