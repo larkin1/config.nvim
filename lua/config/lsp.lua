@@ -28,6 +28,7 @@ vim.lsp.config.nil_ls = {
   root_markers = { 'flake.nix', '.git' },
   settings = {
     ['nil'] = {
+      formatting = { command = { 'nixfmt' } },
       nix = {
         flake = {
           autoArchive = true,
@@ -93,10 +94,28 @@ vim.lsp.config.gopls = {
   }
 }
 
+-- Bash
+vim.lsp.config.bashls = {
+  capabilities = capabilities,
+  cmd = { 'bash-language-server', 'start' },
+  filetypes = { 'sh', 'bash' },
+  root_markers = { '.git' },
+}
+
 -- Enable the servers
-vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'basedpyright', 'gopls', 'qmlls', 'nil_ls' })
+vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'basedpyright', 'gopls', 'qmlls', 'nil_ls', 'bashls' })
 
-
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client:supports_method('textDocument/formatting') then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = args.buf,
+        callback = function() vim.lsp.buf.format({ bufnr = args.buf, id = client.id }) end,
+      })
+    end
+  end,
+})
 
 -- Error messages (virtual_text disabled - handled by tiny-inline-diagnostic)
 vim.diagnostic.config({

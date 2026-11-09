@@ -20,32 +20,32 @@ return {
 
           -- Python
           "/%.venv/",
-          "/%venv/",
-          "/%__pycache__/",
+          "/venv/",
+          "/__pycache__/",
           "/%.pytest_cache/",
           "/%.mypy_cache/",
           "/%.ruff_cache/",
           "/%.tox/",
           "/%.coverage$",
-          "/%htmlcov/",
+          "/htmlcov/",
 
           -- Rust
-          "/%target/",
+          "/target/",
 
           -- JS / TS
-          "/%node_modules/",
-          "/%dist/",
-          "/%build/",
+          "/node_modules/",
+          "/dist/",
+          "/build/",
           "/%.next/",
           "/%.turbo/",
-          "/%.parcel-cache/",
-          "/%coverage/",
+          "/%.parcel%-cache/",
+          "/coverage/",
 
           -- Go
-          "/%bin/",
-          "/%out/",
+          "/bin/",
+          "/out/",
           "/%.gocache/",
-          "/%cover.out$",
+          "/cover%.out$",
 
           -- Generic build / cache
           "/%.cache/",

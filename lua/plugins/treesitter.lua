@@ -23,7 +23,7 @@ return {
 
     -- Enable treesitter highlighting for configured languages
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'go', 'lua', 'python', 'rust', 'javascript', 'typescript', 'json', 'yaml', 'toml', 'vhs', 'nix', 'bash', 'markdown', 'markdown_inline', },
+      pattern = { 'go', 'lua', 'python', 'rust', 'javascript', 'typescript', 'json', 'yaml', 'toml', 'vhs', 'nix', 'sh', 'bash', 'markdown', },
       callback = function()
         pcall(vim.treesitter.start)
       end,
