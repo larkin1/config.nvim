@@ -4,6 +4,6 @@ return {
   priority = 1000,
   opts = {
     palette_path = "~/.cache/matugen/nvim-colors.json",
-    custom_template = vim.fn.stdpath("config") .. "lua/config/matugen",
+    custom_templates = vim.fn.stdpath("config") .. "/lua/config/matugen",
   },
 }
