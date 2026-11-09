@@ -13,17 +13,17 @@ return {
         queries = 'queries',
       },
     }
-    
+
     -- Auto-install core parsers + VHS on startup
     vim.defer_fn(function()
       require('nvim-treesitter').install({
-        'go', 'lua', 'python', 'rust', 'javascript', 'typescript', 'json', 'yaml', 'toml', 'vhs'
+        'go', 'lua', 'python', 'rust', 'javascript', 'typescript', 'json', 'yaml', 'toml', 'vhs', 'nix', 'bash', 'markdown', 'markdown_inline',
       })
     end, 100)
-    
+
     -- Enable treesitter highlighting for configured languages
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'go', 'lua', 'python', 'rust', 'javascript', 'typescript', 'json', 'yaml', 'toml', 'vhs' },
+      pattern = { 'go', 'lua', 'python', 'rust', 'javascript', 'typescript', 'json', 'yaml', 'toml', 'vhs', 'nix', 'bash', 'markdown', 'markdown_inline', },
       callback = function()
         pcall(vim.treesitter.start)
       end,
