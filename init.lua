@@ -23,7 +23,7 @@ vim.opt.softtabstop = 2
 -- Kebindings
 
 -- Run current file
-vim.keymap.set("n", "<leader>r", helpers.run_current_file, {silent = true})
+vim.keymap.set("n", "<leader>r", helpers.run_current_file, { silent = true })
 
 -- Telescope
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find" })
@@ -43,11 +43,7 @@ vim.keymap.set("n", "<leader>u", "<cmd>Atone toggle<CR>", { desc = "Toggle undo 
 -- Initial Config
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.undofile = true
-vim.opt.signcolumn = "yes"
-vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.scrolloff = 8
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.cursorline = true

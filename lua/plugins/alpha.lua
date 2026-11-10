@@ -8,15 +8,15 @@ return {
 
     -- Logo helper functions
     local function build_header(lines, border_color, start_color, end_color)
-      local border_chars = { ["╚"]=true, ["═"]=true, ["╝"]=true, ["║"]=true, ["╔"]=true, ["╗"]=true }
+      local border_chars = { ["╚"] = true, ["═"] = true, ["╝"] = true, ["║"] = true, ["╔"] = true, ["╗"] = true }
       local utf8 = "[%z\1-\127\194-\244][\128-\191]*"
       local n = #lines
 
       local function lerp_color(c1, c2, t)
-        local function hex(s, i) return tonumber(s:sub(i, i+1), 16) end
-        local r = math.floor(hex(c1,2) + (hex(c2,2) - hex(c1,2)) * t)
-        local g = math.floor(hex(c1,4) + (hex(c2,4) - hex(c1,4)) * t)
-        local b = math.floor(hex(c1,6) + (hex(c2,6) - hex(c1,6)) * t)
+        local function hex(s, i) return tonumber(s:sub(i, i + 1), 16) end
+        local r = math.floor(hex(c1, 2) + (hex(c2, 2) - hex(c1, 2)) * t)
+        local g = math.floor(hex(c1, 4) + (hex(c2, 4) - hex(c1, 4)) * t)
+        local b = math.floor(hex(c1, 6) + (hex(c2, 6) - hex(c1, 6)) * t)
         return string.format("#%02x%02x%02x", r, g, b)
       end
 
@@ -26,7 +26,7 @@ return {
       local val = {}
       for i, line in ipairs(lines) do
         local hl_name = "AlphaGrad" .. i
-        vim.api.nvim_set_hl(0, hl_name, { fg = lerp_color(start_color, end_color, (i-1) / math.max(1, n-1)) })
+        vim.api.nvim_set_hl(0, hl_name, { fg = lerp_color(start_color, end_color, (i - 1) / math.max(1, n - 1)) })
 
         local full, positions, byte = "", {}, 0
         -- group consecutive chars of the same type into segments
@@ -69,9 +69,9 @@ return {
     -- Buttons
     dashboard.section.buttons.val = {
       dashboard.button('n', '󰈔  New', ':ene <BAR> startinsert <CR>'),
-      dashboard.button('f', '󰝒  Find file', ':Telescope file_browser<CR>'),
-      dashboard.button('g', '󱎸  Find text', ':Telescope live_grep<CR>'),
-      dashboard.button('r', '󱈖  Recent files', ':Telescope oldfiles<CR>'),
+      dashboard.button('f', '󰝒  Find', ':Telescope find_files<CR>'),
+      dashboard.button('g', '󱎸  Grep', ':Telescope live_grep<CR>'),
+      dashboard.button('r', '󱈖  Recent', ':Telescope oldfiles<CR>'),
       dashboard.button('q', '󰜺  Quit', ':qa<CR>'),
     }
 
