@@ -20,19 +20,21 @@ vim.lsp.config.lua_ls = {
 }
 
 -- NIX LS
-vim.lsp.config.nil_ls = {
+vim.lsp.config.nixd = {
   capabilities = capabilities,
   on_attach = function(client) client.server_capabilities.semanticTokensProvider = nil end,
-  cmd = { 'nil' },
+  cmd = { 'nixd' },
   filetypes = { 'nix' },
   root_markers = { 'flake.nix', '.git' },
   settings = {
-    ['nil'] = {
+    nixd = {
+      nixpkgs = {
+        expr = 'import (builtins.getFlake "/etc/nixos").inputs.nixpkgs { }',
+      },
       formatting = { command = { 'nixfmt' } },
-      nix = {
-        flake = {
-          autoArchive = true,
-          autoEvalInputs = false,
+      options = {
+        nixos = {
+          expr = '(builtins.getFlake "/etc/nixos").nixosConfigurations.' .. vim.fn.hostname() .. '.options',
         },
       },
     },
@@ -75,7 +77,7 @@ vim.lsp.config.basedpyright = {
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         typeCheckingMode = "basic",
-      semanticTokens = true,
+        semanticTokens = true,
       },
     },
   },
@@ -103,7 +105,7 @@ vim.lsp.config.bashls = {
 }
 
 -- Enable the servers
-vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'basedpyright', 'gopls', 'qmlls', 'nil_ls', 'bashls' })
+vim.lsp.enable({ 'lua_ls', 'rust_analyzer', 'basedpyright', 'gopls', 'qmlls', 'nixd', 'bashls' })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
